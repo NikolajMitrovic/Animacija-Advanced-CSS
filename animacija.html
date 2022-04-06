@@ -13,31 +13,36 @@
 
         @keyframes my-second-animation {
 
-        33% {
+            from {
+                transform: scale(0.3, 0.3);
 
-            filter:brightness(50%)
-        }
+            }
 
-        67% {
-            filter:brightness(100%)
-        }
+            to {
+                transform: scale(1, 1);
 
-        100% {
-            filter:brightness(200%)
-        }
+            }
 
         }
 
-        .container::after {
+
+        .container::before {
             content: "";
-            background: radial-gradient(#201d2c, #050210);
             position: absolute;
             margin-top: 0;
             margin-right: auto;
-            height: 100%;
-            width: 100%;
+            background: #050210;
+            filter: brightness(200%);
             border-radius: 100%;
-            }
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            transform-origin: center;
+            animation-name: my-second-animation;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0.08, 0.37, 0.75, 0.6);
+        }
 
         .container {
             margin-top: 0;
@@ -49,16 +54,6 @@
             height: 450px;
             display: inline-block;
             transform-origin: center;
-            animation-name: my-second-animation;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
-
-
-
-
-
-
 
         }
 
@@ -111,6 +106,7 @@
 
     <div id="div-1" class="border-wrap">
         <div id="div-2" class="container"></div>
+    </div>
 
     </div>
 
